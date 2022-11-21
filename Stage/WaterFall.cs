@@ -28,10 +28,10 @@ public class WaterFall : UdonSharpBehaviour
     private void OnParticleCollision(GameObject other)
     {
         Debug.Log(other.gameObject.name);
-        if (other.gameObject.name == "water")
+        if (other.gameObject.name.Contains("WaterCup"))
         {
-            if(other.gameObject.transform.localScale.z <= 100){
-                other.gameObject.transform.localScale += new Vector3(0, 0, 0.5f);
+            if(other.gameObject.transform.GetChild(0).localScale.z <= 1){
+                other.gameObject.transform.GetChild(0).localScale += new Vector3(0, 0, 0.003f);
             }
         }
     }
